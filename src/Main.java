@@ -46,7 +46,7 @@ class Server extends JFrame {
         fileMenu.add(listenerItem);
         listenerItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Listener2 listener = new Listener2();
+                Listener2 listener = new Listener2(Server.this);
                 listener.setVisible(true);
 //                Listener listener = new Listener();
 //                listener.createListener();
