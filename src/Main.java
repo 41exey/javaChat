@@ -28,6 +28,12 @@ class Server extends JFrame {
         dialog.setSize(360, 180);
         dialog.setResizable(false);
         dialog.setLocationRelativeTo(this);
+
+        JPanel panel = new JPanel();
+        dialog.add(panel);
+
+//      panel.setLayout(layout);
+
         return dialog;
     }
 
@@ -40,8 +46,10 @@ class Server extends JFrame {
         fileMenu.add(listenerItem);
         listenerItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JDialog dialog = listenerDialog("Listener", true);
-                dialog.setVisible(true);
+                Listener2 listener = new Listener2();
+                listener.setVisible(true);
+//                Listener listener = new Listener();
+//                listener.createListener();
             }
         });
         fileMenu.addSeparator();
