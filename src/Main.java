@@ -49,6 +49,15 @@ class Server extends JFrame {
         JMenuItem aboutItem = new JMenuItem("About");
         aboutMenu.add(aboutItem);
 
+        aboutItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame,
+                        "Simple Chat Server\n\n© 2019. All right reserved",
+                        "About",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
         menuBar.add(fileMenu);
         menuBar.add(aboutMenu);
 
