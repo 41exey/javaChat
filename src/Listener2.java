@@ -3,31 +3,31 @@ import java.awt.event.*;
 
 public class Listener2 extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
+    private JButton buttonListen;
     private JButton buttonCancel;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField textFieldNick;
+    private JTextField textFieldPort;
 
     public Listener2(JFrame frame) {
 
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(buttonListen);
         setResizable(false);
         setSize(260, 140);
         setLocationRelativeTo(frame);
-//
-//        buttonOK.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                onOK();
-//            }
-//        });
-//
-//        buttonCancel.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                onCancel();
-//            }
-//        });
+
+        buttonListen.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onListen();
+            }
+        });
+
+        buttonCancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onCancel();
+            }
+        });
 //
 //        // call onCancel() when cross is clicked
 //        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -45,15 +45,13 @@ public class Listener2 extends JDialog {
 //        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        // add your code here
-        dispose();
+    private void onListen() {
+        System.out.println("Listen activate");
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
-    }
+            }
 
     public static void main(String[] args) {
 /*
