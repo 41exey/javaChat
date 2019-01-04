@@ -10,7 +10,6 @@ public class Main {
 
         Server server = new Server();
 
-
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrame.setDefaultLookAndFeelDecorated(true);
@@ -35,6 +34,9 @@ public class Main {
 }
 
 class Server extends JFrame {
+    JTextArea textArea;
+    JTextField textField;;
+
 
     void createGUI() {
         JFrame frame = new JFrame("Java Chat Server");

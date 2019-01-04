@@ -14,11 +14,14 @@ public class Form extends JFrame {
         super(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        setContentPane(new Form("Java Chat Server").panel1);
-        panel1.setPreferredSize(new Dimension(400, 450));
+        setPreferredSize(new Dimension(400, 450));
+        setContentPane(panel1);
+
 
         //scrollPane = new JScrollPane(textArea1);
 
-//        setSize(500, 250);
+//        setSize(500, 550);
+//        setSize(1000, 800);
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
         JMenuItem listenerItem = new JMenuItem("Listener");
@@ -51,8 +54,9 @@ public class Form extends JFrame {
         menuBar.add(fileMenu);
         menuBar.add(aboutMenu);
         setJMenuBar(menuBar);
-        setPreferredSize(new Dimension(270, 225));
+//        setPreferredSize(new Dimension(270, 225));
         pack();
+        setLocationByPlatform(true);
         setLocationRelativeTo(null);
         //setVisible(true);
         buttonSend.addActionListener(new ActionListener() {
