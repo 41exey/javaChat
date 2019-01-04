@@ -31,6 +31,8 @@ public class Listener2 extends JDialog {
             System.out.println("Active");
             buttonListen.setText("Un listen");
             setDisableComponents();
+            textFieldNick.setText(form.getNickname());
+            textFieldPort.setText(Integer.toString(form.getPort()));
 //                  form.listen = false;
         } else {
             System.out.println("Un Active");
@@ -73,7 +75,7 @@ public class Listener2 extends JDialog {
                 System.out.println(textFieldNick.getText());
                 System.out.println(Integer.parseInt(textFieldPort.getText()));
                 form.setNickname(textFieldNick.getText());
-                form.setPort((char) Integer.parseInt(textFieldPort.getText()));
+                form.setPort(Integer.parseInt(textFieldPort.getText()));
                 form.clearTextArea();
                 form.setEnableComponents();
                 form.listen = true;

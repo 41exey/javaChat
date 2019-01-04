@@ -25,15 +25,15 @@ public class Form extends JFrame {
 
     private String Nickname;
 
-    public void setPort(char port) {
+    public void setPort(int port) {
         this.port = port;
     }
 
-    public char getPort() {
+    public int getPort() {
         return port;
     }
 
-    private char port;
+    private int port;
 
     public void setEnableComponents() {
         textArea1.setEnabled(true);
@@ -104,7 +104,6 @@ public class Form extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!textField1.getText().isEmpty()) {
                     System.out.println(textField1.getText());
-
                     textArea1.append(getNickname() + ": " + textField1.getText() + "\n");
                     textField1.setText("");
                 }
