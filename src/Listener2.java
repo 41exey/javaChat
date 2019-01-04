@@ -47,11 +47,13 @@ public class Listener2 extends JDialog {
 
     private void onListen() {
         System.out.println("Listen activate");
+        System.out.println(textFieldNick.getText());
+        System.out.println(Integer.parseInt(textFieldPort.getText()));
     }
 
     private void onCancel() {
         dispose();
-            }
+    }
 
     public static void main(String[] args) {
 /*

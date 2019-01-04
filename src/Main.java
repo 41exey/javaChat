@@ -21,22 +21,6 @@ public class Main {
 
 class Server extends JFrame {
 
-    JDialog listenerDialog(String title, boolean modal)
-    {
-        JDialog dialog = new JDialog(this, title, modal);
-        dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        dialog.setSize(360, 180);
-        dialog.setResizable(false);
-        dialog.setLocationRelativeTo(this);
-
-        JPanel panel = new JPanel();
-        dialog.add(panel);
-
-//      panel.setLayout(layout);
-
-        return dialog;
-    }
-
     void createGUI() {
         JFrame frame = new JFrame("Java Chat Server");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
