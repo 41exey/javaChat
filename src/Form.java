@@ -9,6 +9,43 @@ public class Form extends JFrame {
     private JTextField textField1;
     private JButton buttonSend;
     private JScrollPane scrollPane;
+    boolean listen;
+
+    public void clearTextArea() {
+        textArea1.setText("");
+    }
+
+    public void setNickname(String nickname) {
+        Nickname = nickname;
+    }
+
+    public String getNickname() {
+        return Nickname;
+    }
+
+    private String Nickname;
+
+    public void setPort(char port) {
+        this.port = port;
+    }
+
+    public char getPort() {
+        return port;
+    }
+
+    private char port;
+
+    public void setEnableComponents() {
+        textArea1.setEnabled(true);
+        textField1.setEnabled(true);
+        buttonSend.setEnabled(true);
+    }
+
+    public void setDisableComponents() {
+        textArea1.setEnabled(false);
+        textField1.setEnabled(false);
+        buttonSend.setEnabled(false);
+    }
 
     Form(String title) {
         super(title);
@@ -17,7 +54,7 @@ public class Form extends JFrame {
         setPreferredSize(new Dimension(400, 450));
         setResizable(false);
         setContentPane(panel1);
-
+        setDisableComponents();
 
         //scrollPane = new JScrollPane(textArea1);
 
@@ -29,7 +66,7 @@ public class Form extends JFrame {
         fileMenu.add(listenerItem);
         listenerItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Listener2 listener = new Listener2(Form.this);
+                Listener2 listener = new Listener2(Form.this, Form.this);
                 listener.setVisible(true);
             }
         });
@@ -66,8 +103,8 @@ public class Form extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!textField1.getText().isEmpty()) {
                     System.out.println(textField1.getText());
-                    textArea1.append(textField1.getText() + ": " + textField1.getText() + "\n");
-                    textField1.setText("");
+                    textArea1.append(getNickname() + ": " + textField1.getText() + "\n");
+                    //textField1.setText("");
                 }
             }
         });

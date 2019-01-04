@@ -8,7 +8,17 @@ public class Listener2 extends JDialog {
     private JTextField textFieldNick;
     private JTextField textFieldPort;
 
-    public Listener2(JFrame frame) {
+    public void setDisableComponents() {
+        textFieldNick.setEnabled(false);
+        textFieldPort.setEnabled(false);
+    }
+
+    public void setEnableComponent() {
+        textFieldNick.setEnabled(true);
+        textFieldPort.setEnabled(true);
+    }
+
+    public Listener2(JFrame frame, Form form) {
 
         setContentPane(contentPane);
         setModal(true);
@@ -17,9 +27,20 @@ public class Listener2 extends JDialog {
         setSize(260, 140);
         setLocationRelativeTo(frame);
 
+        if (form.listen) {
+            System.out.println("Active");
+            buttonListen.setText("Un listen");
+            setDisableComponents();
+//                  form.listen = false;
+        } else {
+            System.out.println("Un Active");
+            buttonListen.setText("Listen");
+            setEnableComponent();
+        }
+
         buttonListen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onListen();
+                onListen(form);
             }
         });
 
@@ -45,13 +66,25 @@ public class Listener2 extends JDialog {
 //        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onListen() {
-        System.out.println("Listen activate");
-        try {
-            System.out.println(textFieldNick.getText());
-            System.out.println(Integer.parseInt(textFieldPort.getText()));
-        } catch (Exception e) {
-            System.out.println("Check your data in form");
+    private void onListen(Form form) {
+        //System.out.println("Listen activate");
+        if (!form.listen) {
+            try {
+                System.out.println(textFieldNick.getText());
+                System.out.println(Integer.parseInt(textFieldPort.getText()));
+                form.setNickname(textFieldNick.getText());
+                form.setPort((char) Integer.parseInt(textFieldPort.getText()));
+                form.clearTextArea();
+                form.setEnableComponents();
+                form.listen = true;
+                dispose();
+            } catch (Exception e) {
+                System.out.println("Check your data in form");
+            }
+        } else {
+            buttonListen.setText("Listen");
+            setEnableComponent();
+            form.listen = false;
         }
     }
 
