@@ -56,8 +56,9 @@ public class Form extends JFrame {
         setContentPane(panel1);
         setDisableComponents();
 
-        //scrollPane = new JScrollPane(textArea1);
-
+        scrollPane = new JScrollPane(textArea1);
+        getContentPane().add(scrollPane);
+//        scrollPane.setVerticalScrollBar();
 //        setSize(500, 550);
 //        setSize(1000, 800);
         JMenuBar menuBar = new JMenuBar();
@@ -103,8 +104,9 @@ public class Form extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!textField1.getText().isEmpty()) {
                     System.out.println(textField1.getText());
+
                     textArea1.append(getNickname() + ": " + textField1.getText() + "\n");
-                    //textField1.setText("");
+                    textField1.setText("");
                 }
             }
         });
