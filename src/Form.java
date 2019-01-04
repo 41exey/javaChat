@@ -13,6 +13,7 @@ public class Form extends JFrame {
     Form(String title) {
         super(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setContentPane(new Form("Java Chat Server").panel1);
         panel1.setPreferredSize(new Dimension(400, 450));
 
         //scrollPane = new JScrollPane(textArea1);

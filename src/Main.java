@@ -14,11 +14,18 @@ public class Main {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrame.setDefaultLookAndFeelDecorated(true);
+
+                Form form = new Form("Java Chat Server");
+                form.setVisible(true);
+
+
+                /*
                 JFrame frame = new JFrame("Java Chat Server");
                 frame.setContentPane(new Form("Java Chat Server").panel1);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                */
                 //Form form = new Form("Java Chat Server");
                 //form.setVisible(true);
                 //server.createGUI();
