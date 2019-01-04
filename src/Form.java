@@ -15,6 +15,7 @@ public class Form extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        setContentPane(new Form("Java Chat Server").panel1);
         setPreferredSize(new Dimension(400, 450));
+        setResizable(false);
         setContentPane(panel1);
 
 
@@ -58,13 +59,16 @@ public class Form extends JFrame {
         pack();
         setLocationByPlatform(true);
         setLocationRelativeTo(null);
+        textArea1.setEditable(false);
         //setVisible(true);
         buttonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(textField1.getText());
-                textArea1.append(textField1.getText() + "\n");
-                textField1.setText("");
+                if (!textField1.getText().isEmpty()) {
+                    System.out.println(textField1.getText());
+                    textArea1.append(textField1.getText() + ": " + textField1.getText() + "\n");
+                    textField1.setText("");
+                }
             }
         });
     }
