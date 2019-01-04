@@ -47,8 +47,12 @@ public class Listener2 extends JDialog {
 
     private void onListen() {
         System.out.println("Listen activate");
-        System.out.println(textFieldNick.getText());
-        System.out.println(Integer.parseInt(textFieldPort.getText()));
+        try {
+            System.out.println(textFieldNick.getText());
+            System.out.println(Integer.parseInt(textFieldPort.getText()));
+        } catch (Exception e) {
+            System.out.println("Check your data in form");
+        }
     }
 
     private void onCancel() {

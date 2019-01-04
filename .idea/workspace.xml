@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59acfe8b-27a7-4fa9-8935-7b20a9f685dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Listener.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Listener.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Listener2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Listener2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -19,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            <state relative-caret-position="238">
+              <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,13 +31,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Form.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Listener2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="50" column="68" selection-start-line="50" selection-start-column="68" selection-end-line="50" selection-end-column="68" />
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="26" />
               <folding>
-                <element signature="e#1581#1582#0" expanded="true" />
-                <element signature="e#1614#1615#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
+                <element signature="e#805#806#0" expanded="true" />
+                <element signature="e#847#848#0" expanded="true" />
+                <element signature="e#1828#1829#0" expanded="true" />
+                <element signature="e#1853#1854#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,14 +92,16 @@
         <option value="$PROJECT_DIR$/src/Listener.java" />
         <option value="$PROJECT_DIR$/src/Listener.form" />
         <option value="$PROJECT_DIR$/src/Listener2.form" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Listener2.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Form.form" />
+        <option value="$PROJECT_DIR$/src/Form.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="22" />
+    <option name="x" value="36" />
+    <option name="y" value="66" />
     <option name="width" value="1274" />
     <option name="height" value="804" />
   </component>
@@ -85,43 +110,13 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="javaChatServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javaChatServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javaChatServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javaChatServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javaChatServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javaChatServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="javaChatServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javaChatServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Listener2" type="e9f4de52:FormNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="299" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546591926070" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546596832632" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -175,17 +170,18 @@
       <workItem from="1546511713857" duration="7951000" />
       <workItem from="1546524685581" duration="12850000" />
       <workItem from="1546540155405" duration="1680000" />
+      <workItem from="1546596995843" duration="550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23466000" />
+    <option name="totallyTimeSpent" value="28387000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="112" width="1274" height="804" extended-state="0" />
+    <frame x="36" y="66" width="1274" height="804" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25782537" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16639209" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -216,7 +212,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25782537" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25782537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -251,26 +247,12 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Listener.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Listener2.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listener.java" />
+    <entry file="file://$PROJECT_DIR$/src/Listener.form" />
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state relative-caret-position="238">
+          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -280,10 +262,33 @@
     <entry file="file://$PROJECT_DIR$/src/Listener2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="50" column="68" selection-start-line="50" selection-start-column="68" selection-end-line="50" selection-end-column="68" />
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="26" />
           <folding>
-            <element signature="e#1581#1582#0" expanded="true" />
-            <element signature="e#1614#1615#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listener2.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
