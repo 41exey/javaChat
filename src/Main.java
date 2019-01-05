@@ -8,31 +8,23 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Chat Server!");
 
-        Server server = new Server();
+
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrame.setDefaultLookAndFeelDecorated(true);
 
-                Form form = new Form("Java Chat Server");
-                form.setVisible(true);
+//                Form form = new Form("Java Chat Server");
+//                form.setVisible(true);
+                com.server.Server server = new com.server.Server("Java Chat Server");
+                server.setVisible(true);
 
-
-                /*
-                JFrame frame = new JFrame("Java Chat Server");
-                frame.setContentPane(new Form("Java Chat Server").panel1);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(true);
-                */
-                //Form form = new Form("Java Chat Server");
-                //form.setVisible(true);
-                //server.createGUI();
             }
         });
     }
 }
 
+/*
 class Server extends JFrame {
     JTextArea textArea;
     JTextField textField;;
@@ -81,3 +73,4 @@ class Server extends JFrame {
         frame.setVisible(true);
     }
 }
+*/
