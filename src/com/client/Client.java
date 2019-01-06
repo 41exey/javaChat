@@ -151,8 +151,8 @@ public class Client extends JFrame implements ConnectionListenerInterface {
     public static void main(String[] args) {
         Client client = new Client("Simple Chat Client");
         client.setVisible(true);
-        Client client2 = new Client("Simple Chat Client");
-        client2.setVisible(true);
+//        Client client2 = new Client("Simple Chat Client");
+//        client2.setVisible(true);
     }
 
 }

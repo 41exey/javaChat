@@ -20,6 +20,7 @@ public class Connection implements ConnectionInterface, Runnable {
             this.connectionListener = connectionListener;
             out = socket.getOutputStream();
             in = socket.getInputStream();
+            needToRun = true;
             Thread t = new Thread(this);
             t.setPriority(Thread.MIN_PRIORITY);
             t.start();

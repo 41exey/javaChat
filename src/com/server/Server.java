@@ -162,6 +162,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
     public void start() {
         System.out.println("Server started");
+        needToNewConnection = true;
         Thread t = new Thread(this);
         t.setPriority(Thread.MIN_PRIORITY);
         t.start();
