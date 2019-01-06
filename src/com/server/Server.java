@@ -26,7 +26,7 @@ public class Server extends JFrame {
         return Nickname;
     }
 
-    private String Nickname;
+    private String Nickname = "Nickname";
 
     public void setPort(int port) {
         this.port = port;
@@ -36,7 +36,7 @@ public class Server extends JFrame {
         return port;
     }
 
-    private int port;
+    private int port = 8000;
 
     public void setEnableComponents() {
         textArea1.setEnabled(true);

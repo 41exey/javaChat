@@ -29,12 +29,14 @@ public class Listener extends JDialog {
         setLocationRelativeTo((JFrame)form);
         setTitle("Listener");
 
+        textFieldNick.setText(form.getNickname());
+        textFieldPort.setText(Integer.toString(form.getPort()));
+
         if (form.listen) {
             System.out.println("Active");
             buttonListen.setText("Un listen");
             setDisableComponents();
-            textFieldNick.setText(form.getNickname());
-            textFieldPort.setText(Integer.toString(form.getPort()));
+
 //                  form.listen = false;
         } else {
             System.out.println("Un Active");
