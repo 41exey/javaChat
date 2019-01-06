@@ -102,26 +102,22 @@ public class Connector extends JDialog {
                 form.setNickname(textFieldNick.getText().trim());
                 form.setPort(Integer.parseInt(textFieldPort.getText().trim()));
                 form.setIP(textFieldIP.getText().trim());
+                Socket socket = new Socket(InetAddress.getByName(form.getIP()), form.getPort());
+                form.connection = new Connection(socket, form);
+                form.connectionCreated(form.connection);
+
                 form.clearTextArea();
                 form.setEnableComponents();
-
-                try {
-                    Socket socket = new Socket(InetAddress.getByName(form.getIP()), form.getPort());
-                    form.connection = new Connection(socket, form);
-                    form.connectionCreated(form.connection);
-                    form.connect = true;
-                    dispose();
-                } catch (ConnectException e) {
-                    JOptionPane.showMessageDialog(form,
-                            "Connection refused",
+                form.connect = true;
+                dispose();
+            } catch (ConnectException e) {
+                JOptionPane.showMessageDialog(form,
+                        "Connection refused",
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
             } catch (Exception e) {
-                System.out.println("Check your data in form");
+                e.printStackTrace();
             }
         } else {
             buttonConnect.setText("Listen");

@@ -1,7 +1,11 @@
 package com.server;
 
+import com.common.ConnectionInterface;
+
 import javax.swing.*;
 import java.awt.event.*;
+import java.net.ServerSocket;
+import java.util.LinkedHashSet;
 
 public class Listener extends JDialog {
     private JPanel contentPane;
@@ -76,18 +80,35 @@ public class Listener extends JDialog {
         //System.out.println("Listen activate");
         if (!form.listen) {
             try {
-                System.out.println(textFieldNick.getText());
-                System.out.println(Integer.parseInt(textFieldPort.getText()));
-                form.setNickname(textFieldNick.getText());
-                form.setPort(Integer.parseInt(textFieldPort.getText()));
+                System.out.println(textFieldNick.getText().trim());
+                System.out.println(Integer.parseInt(textFieldPort.getText().trim()));
+                form.setNickname(textFieldNick.getText().trim());
+                form.setPort(Integer.parseInt(textFieldPort.getText().trim()));
+
+                form.serverSocket = new ServerSocket(form.getPort());
+                form.connections = new LinkedHashSet();
+                form.start();
+
+
                 form.clearTextArea();
                 form.setEnableComponents();
                 form.listen = true;
+
+
                 dispose();
+
             } catch (Exception e) {
                 System.out.println("Check your data in form");
+                e.printStackTrace();
             }
         } else {
+            try {
+//                form.serverSocket.close();
+                form.stop();
+//                form.connections = null;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             buttonListen.setText("Listen");
             setEnableComponent();
             form.setDisableComponents();

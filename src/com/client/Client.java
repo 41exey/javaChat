@@ -15,7 +15,6 @@ public class Client extends JFrame implements ConnectionListenerInterface {
     private JButton buttonSend;
     private JScrollPane scrollPane;
     boolean connect;
-//    Socket socket;
     ConnectionInterface connection;
 
     public void clearTextArea() {
@@ -144,8 +143,9 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
     @Override
     public void receivedContent(MessageInterface message) {
-        textArea1.append(message.toString());
-        textArea1.append("\n");
+//        textArea1.append(message.toString());
+        textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
+//        textArea1.append("\n");
     }
 
     public static void main(String[] args) {
