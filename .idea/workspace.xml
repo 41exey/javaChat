@@ -99,7 +99,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="299" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546686332493" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546779650675" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../chat" />
   </component>
   <component name="RunDashboard">
@@ -162,7 +162,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47162000" />
+    <option name="totallyTimeSpent" value="47776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="50" width="1274" height="804" extended-state="0" />
