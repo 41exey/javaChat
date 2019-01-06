@@ -1,9 +1,6 @@
 package com.client;
 
-import com.common.ConnectionInterface;
-import com.common.ConnectionListenerInterface;
-import com.common.Message;
-import com.common.MessageInterface;
+import com.common.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +40,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         return port;
     }
 
-    private int port = 8000;
+    private int port = Connection.PORT;
 
     public void setEnableComponents() {
         textArea1.setEnabled(true);
@@ -65,7 +62,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         return IP;
     }
 
-    private String IP = "127.0.0.1";
+    private String IP = Connection.IP;
 
     Client(String title) {
         super(title);
@@ -103,7 +100,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         aboutItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(Client.this,
-                        "Simple Chat Client\n\n© c1ewd 2019. All right reserved",
+                        "Simple Chat Client\n\n© 2019. All right reserved",
                         "About",
                         JOptionPane.INFORMATION_MESSAGE);
             }

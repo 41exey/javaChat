@@ -1,5 +1,7 @@
 package com.server;
 
+import com.common.Connection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -36,7 +38,7 @@ public class Server extends JFrame {
         return port;
     }
 
-    private int port = 8000;
+    private int port = Connection.PORT;
 
     public void setEnableComponents() {
         textArea1.setEnabled(true);
