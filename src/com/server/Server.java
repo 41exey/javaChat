@@ -119,12 +119,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                     System.out.println(text);
                     Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
 
-                    try {
-                        for (ConnectionInterface connection : connections) {
-                            connection.send(message);
-                        }
-                    } catch(Exception ex){
-                        ex.printStackTrace();
+                    for (ConnectionInterface connection : connections) {
+                        connection.send(message);
                     }
 
                     textArea1.append(getNickname() + ": " + text + "\n");
@@ -147,12 +143,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
 
                 for (ConnectionInterface connection : connections) {
-                    try {
-                        connection.send(message);
-
-                    } catch(Exception ex){
-                        ex.printStackTrace();
-                    }
+                    connection.send(message);
                 }
 
                 textArea1.append(getNickname() + ": " + text + "\n");

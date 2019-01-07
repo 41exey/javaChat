@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.Socket;
 
 public class Client extends JFrame implements ConnectionListenerInterface {
@@ -122,6 +124,22 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                     //textArea1.append(getNickname() + ": " + textField1.getText() + "\n");
                     textField1.setText("");
                 }
+            }
+        });
+        textField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() != KeyEvent.VK_ENTER)
+                    return;
+
+                if (textField1.getText().isEmpty())
+                    return;
+
+                String text = textField1.getText().trim();
+                System.out.println(text);
+                Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
+                connection.send(message);
+                textField1.setText("");
             }
         });
     }
