@@ -103,9 +103,7 @@ public class Listener extends JDialog {
             }
         } else {
             try {
-//                form.serverSocket.close();
                 form.stop();
-//                form.connections = null;
             } catch (Exception e) {
                 e.printStackTrace();
             }
