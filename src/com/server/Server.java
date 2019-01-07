@@ -64,8 +64,6 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     public Server(String title) {
         super(title);
 
-
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setPreferredSize(new Dimension(400, 450));
@@ -85,6 +83,16 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 listener.setVisible(true);
             }
         });
+
+        JMenuItem clientsItem = new JMenuItem("Clients");
+        fileMenu.add(clientsItem);
+        clientsItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Clients clients = new Clients(Server.this);
+                clients.setVisible(true);
+            }
+        });
+
         fileMenu.addSeparator();
         JMenuItem exitItem = new JMenuItem("Exit");
         fileMenu.add(exitItem);

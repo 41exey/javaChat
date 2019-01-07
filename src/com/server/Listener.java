@@ -84,19 +84,13 @@ public class Listener extends JDialog {
                 System.out.println(Integer.parseInt(textFieldPort.getText().trim()));
                 form.setNickname(textFieldNick.getText().trim());
                 form.setPort(Integer.parseInt(textFieldPort.getText().trim()));
-
                 form.serverSocket = new ServerSocket(form.getPort());
                 form.connections = new LinkedHashSet();
                 form.start();
-
-
                 form.clearTextArea();
                 form.setEnableComponents();
                 form.listen = true;
-
-
                 dispose();
-
             } catch (Exception e) {
                 System.out.println("Check your data in form");
                 e.printStackTrace();
