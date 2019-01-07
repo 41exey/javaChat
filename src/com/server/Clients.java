@@ -9,6 +9,7 @@ public class Clients extends JDialog {
     private JButton buttonCancel;
     private JList list1;
     private JCheckBox withHostNameCheckBox;
+    private JButton banButton;
 
     public Clients(Server form) {
         setContentPane(contentPane);
@@ -55,12 +56,14 @@ public class Clients extends JDialog {
 
     private void onDelete() {
         // add your code here
-        dispose();
+        //dispose();
+        setVisible(false);
     }
 
     private void onCancel() {
         // add your code here if necessary
-        dispose();
+        //dispose();
+        setVisible(false);
     }
 
     public static void main(String[] args) {

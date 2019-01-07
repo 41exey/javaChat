@@ -7,6 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59acfe8b-27a7-4fa9-8935-7b20a9f685dc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/server/Clients.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/server/Clients.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/server/Clients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/server/Clients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/server/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,47 +24,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/server/Server.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2853#2854#0" expanded="true" />
-                <element signature="e#2899#2900#0" expanded="true" />
-              </folding>
+              <caret line="149" column="35" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/server/Clients.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/server/Clients.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/client/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-              <folding>
-                <element signature="e#607#608#0" expanded="true" />
-                <element signature="e#649#650#0" expanded="true" />
-                <element signature="e#781#782#0" expanded="true" />
-                <element signature="e#823#824#0" expanded="true" />
-                <element signature="e#1474#1475#0" expanded="true" />
-                <element signature="e#1520#1521#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/server/Listener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="2" selection-start-line="16" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="85">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -89,15 +68,15 @@
         <option value="$PROJECT_DIR$/src/com/server/Listener.form" />
         <option value="$PROJECT_DIR$/src/com/common/ConnectionInterface.java" />
         <option value="$PROJECT_DIR$/src/com/client/Connector.java" />
-        <option value="$PROJECT_DIR$/src/com/server/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/client/Main.java" />
         <option value="$PROJECT_DIR$/src/com/common/Connection.java" />
         <option value="$PROJECT_DIR$/src/com/common/ConnectionListenerInterface.java" />
-        <option value="$PROJECT_DIR$/src/com/client/Client.java" />
         <option value="$PROJECT_DIR$/src/com/server/Listener.java" />
-        <option value="$PROJECT_DIR$/src/com/server/Clients.form" />
         <option value="$PROJECT_DIR$/src/com/server/Clients.java" />
+        <option value="$PROJECT_DIR$/src/com/server/Clients.form" />
         <option value="$PROJECT_DIR$/src/com/server/Server.java" />
+        <option value="$PROJECT_DIR$/src/com/server/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/com/client/Main.java" />
       </list>
     </option>
   </component>
@@ -198,7 +177,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="280" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546882670912" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546884158576" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../chat" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -217,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.client.Client" />
       <module name="Server" />
@@ -285,10 +264,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Listener" />
       </list>
     </recent_temporary>
@@ -313,18 +292,18 @@
       <workItem from="1546707392948" duration="288000" />
       <workItem from="1546708004687" duration="736000" />
       <workItem from="1546785775882" duration="6834000" />
-      <workItem from="1546864149865" duration="8941000" />
+      <workItem from="1546864149865" duration="9715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69495000" />
+    <option name="totallyTimeSpent" value="70269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="62" width="1274" height="804" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19357497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19357497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -333,7 +312,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32935917" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32935917" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32935917" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -435,20 +414,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/client/Client.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/server/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/ConnectionInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -470,19 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="e#3902#4196#0" expanded="true" />
-            <element signature="e#4195#4196#0" expanded="true" />
-            <element signature="e#4202#4203#0" expanded="true" />
-            <element signature="e#4237#4238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/server/Listener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -490,13 +442,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/server/Clients.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/server/Clients.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        <state relative-caret-position="289">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
           <folding>
             <element signature="e#607#608#0" expanded="true" />
             <element signature="e#649#650#0" expanded="true" />
@@ -508,15 +457,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/server/Clients.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="28">
+          <caret line="146" column="30" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2497#2498#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
             <element signature="e#2853#2854#0" expanded="true" />
             <element signature="e#2899#2900#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/server/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="149" column="35" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
         </state>
       </provider>
     </entry>

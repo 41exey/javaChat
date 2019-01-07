@@ -142,6 +142,12 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 textField1.setText("");
             }
         });
+        setVisible(true);
+    }
+
+    public void createConnector() {
+        Connector connector = new Connector(Client.this);
+        connector.setVisible(true);
     }
 
     @Override

@@ -24,6 +24,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     boolean needToNewConnection = true;
     Set<ConnectionInterface> connections;
     ServerSocket serverSocket;
+    Clients clients;
+    boolean hostname = true;
 
     public void clearTextArea() {
         textArea1.setText("");
@@ -83,16 +85,14 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 listener.setVisible(true);
             }
         });
-
+        Clients clients = new Clients(Server.this);
         JMenuItem clientsItem = new JMenuItem("Clients");
         fileMenu.add(clientsItem);
         clientsItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Clients clients = new Clients(Server.this);
                 clients.setVisible(true);
             }
         });
-
         fileMenu.addSeparator();
         JMenuItem exitItem = new JMenuItem("Exit");
         fileMenu.add(exitItem);
@@ -158,6 +158,13 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 textField1.setText("");
             }
         });
+        setVisible(true);
+
+    }
+
+    public void createListener() {
+        Listener listener = new Listener(Server.this);
+        listener.setVisible(true);
     }
 
     @Override
