@@ -159,20 +159,20 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     }
 
     @Override
-    public void connectionClosed(ConnectionInterface connection) {
+    public synchronized void connectionClosed(ConnectionInterface connection) {
         connections.remove(connection);
         System.out.println("Connection was closed");
     }
 
     @Override
-    public void connectionException(ConnectionInterface connection, Exception e) {
+    public synchronized void connectionException(ConnectionInterface connection, Exception e) {
         connectionClosed(connection);
         System.out.println("Exception");
         e.printStackTrace();
     }
 
     @Override
-    public void receivedContent(MessageInterface message) {
+    public synchronized void receivedContent(MessageInterface message) {
         textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
         for (ConnectionInterface connection : connections) {
             connection.send(message);

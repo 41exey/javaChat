@@ -151,6 +151,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
     @Override
     public void connectionClosed(ConnectionInterface connection) {
+        connection.close();
         System.out.println("Client connection was closed");
     }
 
