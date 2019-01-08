@@ -22,6 +22,16 @@ public class Connection implements ConnectionInterface, Runnable {
     private OutputStream out;
     private InputStream in;
 
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    private String nick;
+
     public Connection(Socket socket, ConnectionListenerInterface connectionListener) {
         try {
             this.socket = socket;

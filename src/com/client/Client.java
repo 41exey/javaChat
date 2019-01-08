@@ -183,7 +183,11 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                         "Server closed connection",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
-
+                break;
+            case Message.GET_NICK_TYPE:
+                Message message1 = new Message(getNickname(), "Get nick type message", Message.GET_NICK_TYPE);
+                connection.send(message1);
+                System.out.println("Received GET_NICK_TYPE and Send GET_NICK_TYPE");
                 break;
         }
 

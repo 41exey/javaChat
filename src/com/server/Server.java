@@ -191,12 +191,17 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        System.out.println("New hostname: " + connection.getSocket().getInetAddress().getHostName());
 //        System.out.println("New host IP: " + connection.getSocket().getInetAddress().getHostAddress());
         connections.add(connection);
-        System.out.println("Connection was added");
+
+        Message message = new Message("", "", Message.GET_NICK_TYPE);
+        connection.send(message);
+
+//        System.out.println("Connection was added");
+        System.out.println("Send GET_NICK_TYPE");
     }
 
     @Override
     public synchronized void connectionClosed(ConnectionInterface connection) {
-        Message message = new Message("", "", Message.CLOSE_TYPE);
+        Message message = new Message("", "Get nick type message", Message.CLOSE_TYPE);
         connection.send(message);
         connections.remove(connection);
         System.out.println("Connection was closed");
@@ -228,7 +233,20 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                         break;
                     }
                 }
+                break;
+            case Message.GET_NICK_TYPE:
+                connection.setNick(message.getNick());
+                for (int index = 0; index < clients.getListModel().getSize(); index++) {
+                    item = (Item) clients.getListModel().get(index);
+                    if (item.getSocket() == connection.getSocket()) {
+                        clients.getListModel().set(index, new Item(connection.getNick(),
+                                connection.getSocket().getInetAddress().getHostAddress(),
+                                connection.getSocket()));
 
+                        break;
+                    }
+                }
+                System.out.println("Received GET_NICK_TYPE: " + connection.getNick());
                 break;
         }
 

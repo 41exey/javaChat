@@ -5,6 +5,7 @@ import java.io.Serializable;
 public interface MessageInterface extends Serializable {
     int CLOSE_TYPE = 0;
     int CONTENT_TYPE = 1;
+    int GET_NICK_TYPE = 2;
     String getNick();
     String getContent();
     int getType();

@@ -8,4 +8,6 @@ public interface ConnectionInterface {
     void send(MessageInterface message);
     void close();
     Socket getSocket();
+    void setNick(String nick);
+    String getNick();
 }
