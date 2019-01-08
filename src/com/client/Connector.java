@@ -43,13 +43,13 @@ public class Connector extends JDialog {
         textFieldIP.setText(form.getIP());
 
         if (form.connect) {
-            System.out.println("Active");
+//            System.out.println("Active");
             buttonConnect.setText("Disconnect");
             setDisableComponents();
 
 //                  form.listen = false;
         } else {
-            System.out.println("Un Active");
+//            System.out.println("Un Active");
             buttonConnect.setText("Connect");
             setEnableComponent();
         }
@@ -123,11 +123,7 @@ public class Connector extends JDialog {
             buttonConnect.setText("Listen");
             setEnableComponent();
             form.setDisableComponents();
-            try {
-               form.connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            form.connectionClosed(form.connection);
             form.connect = false;
         }
     }

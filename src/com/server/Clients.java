@@ -1,6 +1,7 @@
 package com.server;
 
 import com.common.ConnectionInterface;
+import com.common.Message;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -50,7 +51,7 @@ public class Clients extends JDialog {
 
         buttonDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onDelete((Set<ConnectionInterface>) server.getConnections());
+                onDelete(server);
             }
         });
 
@@ -107,7 +108,9 @@ public class Clients extends JDialog {
 
         for (ConnectionInterface connection : server.connections) {
             if (connection.getSocket() == item.getSocket()) {
-                connection.close();
+//                Message message = new Message("", "", Message.CLOSE_TYPE);
+//                connection.send(message);
+                server.connectionClosed(connection);
                 listModel.remove(index);
                 server.banned.listModel.add(server.banned.listModel.getSize(),
                         item.getSocket().getInetAddress().getHostAddress());
@@ -123,15 +126,17 @@ public class Clients extends JDialog {
         //setVisible(false);
     }
 
-    private void onDelete(Set<ConnectionInterface> connections) {
+    private void onDelete(Server server) {
 
         Item item = list1.getSelectedValue();
         int index = list1.getSelectedIndex();
-        for (ConnectionInterface connection : connections) {
+        for (ConnectionInterface connection : server.connections) {
             if (connection.getSocket() == item.getSocket()) {
-                connection.close();
+//                Message message = new Message("", "", Message.CLOSE_TYPE);
+//                connection.send(message);
+                server.connectionClosed(connection);
                 JOptionPane.showMessageDialog(contentPane,
-                        item.toString() + " was removed",
+                        item.toString() + " was deleted",
                         "Clients",
                         JOptionPane.INFORMATION_MESSAGE);
                 break;

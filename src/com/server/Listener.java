@@ -96,11 +96,7 @@ public class Listener extends JDialog {
                 e.printStackTrace();
             }
         } else {
-            try {
-                form.stop();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            form.stop();
             buttonListen.setText("Listen");
             setEnableComponent();
             form.setDisableComponents();

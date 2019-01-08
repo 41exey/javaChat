@@ -196,6 +196,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
     @Override
     public synchronized void connectionClosed(ConnectionInterface connection) {
+        Message message = new Message("", "", Message.CLOSE_TYPE);
+        connection.send(message);
         connections.remove(connection);
         System.out.println("Connection was closed");
     }
@@ -208,11 +210,28 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     }
 
     @Override
-    public synchronized void receivedContent(MessageInterface message) {
-        textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
-        for (ConnectionInterface connection : connections) {
-            connection.send(message);
+    public synchronized void receivedContent(ConnectionInterface connection, MessageInterface message) {
+        switch(message.getType()) {
+            case Message.CONTENT_TYPE:
+                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
+                for (ConnectionInterface connection1 : connections) {
+                    connection1.send(message);
+                }
+                break;
+            case Message.CLOSE_TYPE:
+                Item item;
+                for (int index = 0; index < clients.getListModel().getSize(); index++) {
+                    item = (Item) clients.getListModel().get(index);
+                    if (item.getSocket() == connection.getSocket()) {
+                        clients.getListModel().remove(index);
+                        connectionClosed(connection);
+                        break;
+                    }
+                }
+
+                break;
         }
+
     }
 
     public void start() {

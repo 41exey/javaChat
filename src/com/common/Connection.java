@@ -12,6 +12,10 @@ public class Connection implements ConnectionInterface, Runnable {
         return socket;
     }
 
+    public ConnectionListenerInterface getConnectionListener() {
+        return connectionListener;
+    }
+
     private Socket socket;
     private ConnectionListenerInterface connectionListener;
     private boolean needToRun = true;
@@ -41,14 +45,13 @@ public class Connection implements ConnectionInterface, Runnable {
             objectOut = new ObjectOutputStream(out);
             objectOut.writeObject(message);
         } catch(Exception e) {
+            System.out.println("Exception in connection::send");
             e.printStackTrace();
         }
     }
 
     @Override
     public void close() {
-        Message message = new Message("", "", Message.CONTENT_TYPE);
-        send(MessageInterface message);
         needToRun = false;
     }
 
@@ -60,13 +63,19 @@ public class Connection implements ConnectionInterface, Runnable {
                 if (amount != 0) {
                     ObjectInputStream objectIn = new ObjectInputStream(in);
                     MessageInterface message = (MessageInterface) objectIn.readObject();
-                    connectionListener.receivedContent(message);
+                    connectionListener.receivedContent(this, message);
                 } else {
                     Thread.sleep(200);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        try {
+            socket.close();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
     }
 }
