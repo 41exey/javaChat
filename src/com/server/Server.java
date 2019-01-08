@@ -265,7 +265,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         try {
             needToNewConnection = false;
             for (ConnectionInterface connection : connections) {
-                connection.close();
+                connectionClosed(connection);
             }
             connections = null;
             serverSocket.close();
