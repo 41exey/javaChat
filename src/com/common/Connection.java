@@ -47,6 +47,8 @@ public class Connection implements ConnectionInterface, Runnable {
 
     @Override
     public void close() {
+        Message message = new Message("", "", Message.CONTENT_TYPE);
+        send(MessageInterface message);
         needToRun = false;
     }
 

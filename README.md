@@ -1,4 +1,4 @@
-# javaChatServer
+# javaChat
 
 The project is written in Java and uses Java Swing.
 
