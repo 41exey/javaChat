@@ -4,10 +4,7 @@ import com.common.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -111,7 +108,15 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         fileMenu.add(exitItem);
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                //System.exit(0);
+                exit();
+            }
+        });
+
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                exit();
             }
         });
         JMenu aboutMenu = new JMenu("About");
@@ -263,12 +268,15 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
     public void stop() {
         try {
-            needToNewConnection = false;
-            for (ConnectionInterface connection : connections) {
-                connectionClosed(connection);
+
+            if (connections != null) {
+                for (ConnectionInterface connection : connections) {
+                    connectionClosed(connection);
+                }
             }
-            connections = null;
-            serverSocket.close();
+            needToNewConnection = false;
+
+//
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -291,5 +299,17 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 e.printStackTrace();
             }
         }
+        try {
+            connections = null;
+            serverSocket.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    void exit() {
+        System.out.println("Exit");
+        stop();
+        System.exit(0);
     }
 }
