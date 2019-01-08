@@ -30,7 +30,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     Set<ConnectionInterface> connections;
     ServerSocket serverSocket;
     Clients clients;
-    boolean hostname = true;
+    Banned banned;
 
     public void clearTextArea() {
         textArea1.setText("");
@@ -98,6 +98,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 clients.setVisible(true);
             }
         });
+        banned = new Banned(Server.this);
         fileMenu.addSeparator();
         JMenuItem exitItem = new JMenuItem("Exit");
         fileMenu.add(exitItem);

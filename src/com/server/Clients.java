@@ -25,7 +25,7 @@ public class Clients extends JDialog {
     }
 
     private DefaultListModel listModel;
-    private JButton buttonBan;
+    private JButton buttonBAN;
 
     public Clients(Server server) {
         setContentPane(contentPane);
@@ -88,7 +88,7 @@ public class Clients extends JDialog {
 
     public void setStateComponents(boolean state) {
         buttonDelete.setEnabled(state);
-        buttonBan.setEnabled(state);
+        buttonBAN.setEnabled(state);
     }
 
     private void onDelete(Set<ConnectionInterface> connections) {
