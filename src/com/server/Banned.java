@@ -1,13 +1,16 @@
 package com.server;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.*;
 
 public class Banned extends JDialog {
     private JPanel contentPane;
     private JButton buttonUnBAN;
     private JButton buttonCancel;
-    private JList list1;
+    private JList<String> list1;
+    DefaultListModel listModel;
 
     public Banned(Server server) {
         setContentPane(contentPane);
@@ -19,6 +22,9 @@ public class Banned extends JDialog {
         setTitle("Clients");
         list1.setLayoutOrientation(JList.VERTICAL | JList.HORIZONTAL_WRAP);
         setStateComponents(false);
+
+        listModel = new DefaultListModel();
+        list1.setModel(listModel);
 
         buttonUnBAN.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -48,6 +54,12 @@ public class Banned extends JDialog {
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         */
+        list1.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                setStateComponents(true);
+            }
+        });
     }
 
     public void setStateComponents(boolean state) {
@@ -55,9 +67,20 @@ public class Banned extends JDialog {
     }
 
     private void onUnBAN() {
-        // add your code here
+        String item = list1.getSelectedValue();
+        int index = list1.getSelectedIndex();
+
+        if (index == -1)
+            return;
+
+        listModel.remove(index);
+        JOptionPane.showMessageDialog(contentPane,
+                item + " un banned",
+                "Clients",
+                JOptionPane.INFORMATION_MESSAGE);
+
         //dispose();
-        setVisible(false);
+        //setVisible(false);
     }
 
     private void onCancel() {

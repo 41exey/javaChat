@@ -15,7 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Server extends JFrame implements ConnectionListenerInterface, Runnable {
-    JPanel panel1;
+    private JPanel panel1;
     private JTextArea textArea1;
     private JTextField textField1;
     private JButton buttonSend;
@@ -99,6 +99,13 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
             }
         });
         banned = new Banned(Server.this);
+        JMenuItem bannedItem = new JMenuItem("Banned");
+        fileMenu.add(bannedItem);
+        bannedItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                banned.setVisible(true);
+            }
+        });
         fileMenu.addSeparator();
         JMenuItem exitItem = new JMenuItem("Exit");
         fileMenu.add(exitItem);

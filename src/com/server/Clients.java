@@ -38,9 +38,15 @@ public class Clients extends JDialog {
         list1.setLayoutOrientation(JList.VERTICAL | JList.HORIZONTAL_WRAP);
         setStateComponents(false);
 
-        list1.add(new JButton("Test Button"));
         listModel = new DefaultListModel();
         list1.setModel(listModel);
+
+        buttonBAN.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onBAN(server);
+            }
+        });
 
         buttonDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +90,7 @@ public class Clients extends JDialog {
                 setStateComponents(true);
             }
         });
+
     }
 
     public void setStateComponents(boolean state) {
@@ -91,9 +98,33 @@ public class Clients extends JDialog {
         buttonBAN.setEnabled(state);
     }
 
-    private void onDelete(Set<ConnectionInterface> connections) {
-        // add your code here
+    private void onBAN(Server server) {
+        Item item = list1.getSelectedValue();
+        int index = list1.getSelectedIndex();
+
+        if (index == -1)
+            return;
+
+        for (ConnectionInterface connection : server.connections) {
+            if (connection.getSocket() == item.getSocket()) {
+                connection.close();
+                listModel.remove(index);
+                server.banned.listModel.add(server.banned.listModel.getSize(),
+                        item.getSocket().getInetAddress().getHostAddress());
+                JOptionPane.showMessageDialog(contentPane,
+                        item.toString() + " was banned",
+                        "Clients",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+            }
+        }
+
         //dispose();
+        //setVisible(false);
+    }
+
+    private void onDelete(Set<ConnectionInterface> connections) {
+
         Item item = list1.getSelectedValue();
         int index = list1.getSelectedIndex();
         for (ConnectionInterface connection : connections) {
@@ -108,6 +139,7 @@ public class Clients extends JDialog {
 
         }
 
+        //dispose();
         //System.out.println(item.toString());
         //item.setNick("New Nick");
         //list1.setSelectedValue(item, true);
@@ -121,7 +153,6 @@ public class Clients extends JDialog {
     }
 
     private void onCancel() {
-        // add your code here if necessary
         //dispose();
         setVisible(false);
     }
