@@ -22,6 +22,11 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     private JScrollPane scrollPane;
     boolean listen;
     boolean needToNewConnection = true;
+
+    public Set<ConnectionInterface> getConnections() {
+        return connections;
+    }
+
     Set<ConnectionInterface> connections;
     ServerSocket serverSocket;
     Clients clients;
@@ -85,7 +90,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 listener.setVisible(true);
             }
         });
-        Clients clients = new Clients(Server.this);
+        clients = new Clients(Server.this);
         JMenuItem clientsItem = new JMenuItem("Clients");
         fileMenu.add(clientsItem);
         clientsItem.addActionListener(new ActionListener() {
@@ -169,6 +174,14 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
     @Override
     public void connectionCreated(ConnectionInterface connection) {
+//        clients.getList1().add()
+//        listModel.add(listModel.getSize(), new Item("Nick", "IP", new Socket()));
+        clients.getListModel().add(clients.getListModel().getSize(),
+                new Item("Nick",
+                        connection.getSocket().getInetAddress().getHostAddress(),
+                        connection.getSocket()));
+//        System.out.println("New hostname: " + connection.getSocket().getInetAddress().getHostName());
+//        System.out.println("New host IP: " + connection.getSocket().getInetAddress().getHostAddress());
         connections.add(connection);
         System.out.println("Connection was added");
     }

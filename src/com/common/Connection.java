@@ -8,6 +8,10 @@ import java.net.ConnectException;
 import java.net.Socket;
 
 public class Connection implements ConnectionInterface, Runnable {
+    public Socket getSocket() {
+        return socket;
+    }
+
     private Socket socket;
     private ConnectionListenerInterface connectionListener;
     private boolean needToRun = true;

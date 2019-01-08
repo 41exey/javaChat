@@ -1,28 +1,50 @@
 package com.server;
 
+import com.common.ConnectionInterface;
+
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.*;
+import java.net.Socket;
+import java.util.Set;
 
 public class Clients extends JDialog {
     private JPanel contentPane;
     private JButton buttonDelete;
     private JButton buttonCancel;
-    private JList list1;
-    private JCheckBox withHostNameCheckBox;
-    private JButton banButton;
 
-    public Clients(Server form) {
+    public JList getList1() {
+        return list1;
+    }
+
+    private JList<Item> list1;
+
+    public DefaultListModel getListModel() {
+        return listModel;
+    }
+
+    private DefaultListModel listModel;
+    private JButton buttonBan;
+
+    public Clients(Server server) {
         setContentPane(contentPane);
         setModal(false);
         getRootPane().setDefaultButton(buttonDelete);
         setResizable(false);
         setSize(260, 240);
-        setLocationRelativeTo((JFrame)form);
+        setLocationRelativeTo((JFrame)server);
         setTitle("Clients");
+        list1.setLayoutOrientation(JList.VERTICAL | JList.HORIZONTAL_WRAP);
+        setStateComponents(false);
+
+        list1.add(new JButton("Test Button"));
+        listModel = new DefaultListModel();
+        list1.setModel(listModel);
 
         buttonDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onDelete();
+                onDelete((Set<ConnectionInterface>) server.getConnections());
             }
         });
 
@@ -48,16 +70,54 @@ public class Clients extends JDialog {
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         */
+        list1.addComponentListener(new ComponentAdapter() {
+        });
+        list1.addComponentListener(new ComponentAdapter() {
+        });
+        list1.addContainerListener(new ContainerAdapter() {
+        });
+        list1.addFocusListener(new FocusAdapter() {
+        });
+        list1.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                setStateComponents(true);
+            }
+        });
     }
 
     public void setStateComponents(boolean state) {
         buttonDelete.setEnabled(state);
+        buttonBan.setEnabled(state);
     }
 
-    private void onDelete() {
+    private void onDelete(Set<ConnectionInterface> connections) {
         // add your code here
         //dispose();
-        setVisible(false);
+        Item item = list1.getSelectedValue();
+        int index = list1.getSelectedIndex();
+        for (ConnectionInterface connection : connections) {
+            if (connection.getSocket() == item.getSocket()) {
+                connection.close();
+                JOptionPane.showMessageDialog(contentPane,
+                        item.toString() + " was removed",
+                        "Clients",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+            }
+
+        }
+
+        //System.out.println(item.toString());
+        //item.setNick("New Nick");
+        //list1.setSelectedValue(item, true);
+        System.out.println("Index: " + index);
+        if (index == -1)
+            return;
+
+        listModel.remove(index);
+
+        //setVisible(false);
     }
 
     private void onCancel() {
@@ -73,5 +133,32 @@ public class Clients extends JDialog {
         dialog.setVisible(true);
         System.exit(0);
         */
+    }
+
+}
+
+class Item {
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    @Override
+    public String toString() {
+        return  nick +
+                " (" + IP + ")";
+    }
+
+    private String nick;
+    private String IP;
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    private Socket socket;
+    Item(String nick, String IP, Socket socket) {
+        this.nick = nick;
+        this.IP = IP;
+        this.socket = socket;
     }
 }
