@@ -190,7 +190,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        clients.getList1().add()
 //        listModel.add(listModel.getSize(), new Item("Nick", "IP", new Socket()));
         clients.getListModel().add(clients.getListModel().getSize(),
-                new Item("Nick",
+                new ClientsDialogItem("Nick",
                         connection.getSocket().getInetAddress().getHostAddress(),
                         connection.getSocket()));
 //        System.out.println("New hostname: " + connection.getSocket().getInetAddress().getHostName());
@@ -229,9 +229,9 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 }
                 break;
             case Message.CLOSE_TYPE:
-                Item item;
+                ClientsDialogItem item;
                 for (int index = 0; index < clients.getListModel().getSize(); index++) {
-                    item = (Item) clients.getListModel().get(index);
+                    item = (ClientsDialogItem) clients.getListModel().get(index);
                     if (item.getSocket() == connection.getSocket()) {
                         clients.getListModel().remove(index);
                         connectionClosed(connection);
@@ -242,9 +242,9 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
             case Message.GET_NICK_TYPE:
                 connection.setNick(message.getNick());
                 for (int index = 0; index < clients.getListModel().getSize(); index++) {
-                    item = (Item) clients.getListModel().get(index);
+                    item = (ClientsDialogItem) clients.getListModel().get(index);
                     if (item.getSocket() == connection.getSocket()) {
-                        clients.getListModel().set(index, new Item(connection.getNick(),
+                        clients.getListModel().set(index, new ClientsDialogItem(connection.getNick(),
                                 connection.getSocket().getInetAddress().getHostAddress(),
                                 connection.getSocket()));
 

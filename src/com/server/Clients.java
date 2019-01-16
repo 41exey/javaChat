@@ -19,7 +19,7 @@ public class Clients extends JDialog {
         return list1;
     }
 
-    private JList<Item> list1;
+    private JList<ClientsDialogItem> list1;
 
     public DefaultListModel getListModel() {
         return listModel;
@@ -100,7 +100,7 @@ public class Clients extends JDialog {
     }
 
     private void onBAN(Server server) {
-        Item item = list1.getSelectedValue();
+        ClientsDialogItem item = list1.getSelectedValue();
         int index = list1.getSelectedIndex();
 
         if (index == -1)
@@ -128,7 +128,7 @@ public class Clients extends JDialog {
 
     private void onDelete(Server server) {
 
-        Item item = list1.getSelectedValue();
+        ClientsDialogItem item = list1.getSelectedValue();
         int index = list1.getSelectedIndex();
         for (ConnectionInterface connection : server.connections) {
             if (connection.getSocket() == item.getSocket()) {
@@ -173,7 +173,7 @@ public class Clients extends JDialog {
 
 }
 
-class Item {
+class ClientsDialogItem {
     public void setNick(String nick) {
         this.nick = nick;
     }
@@ -192,7 +192,7 @@ class Item {
     }
 
     private Socket socket;
-    Item(String nick, String IP, Socket socket) {
+    ClientsDialogItem(String nick, String IP, Socket socket) {
         this.nick = nick;
         this.IP = IP;
         this.socket = socket;
