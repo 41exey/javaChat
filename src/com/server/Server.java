@@ -1,6 +1,7 @@
 package com.server;
 
 import com.common.*;
+import com.common.Popup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -181,7 +182,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 textField1.setText("");
             }
         });
-        JPanel popupPanel = createPopupPanel(scrollPane);
+        JPanel popupPanel = Popup.createPopupPanel(scrollPane);
         popupPanel.setAlignmentX(0.5f);
         popupPanel.setAlignmentY(0.1f);
 //        popupPanel.setBounds(new Rectangle(50, 50, 75, 75));
@@ -190,36 +191,6 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         getContentPane().add(panel1);
         setVisible(true);
 
-    }
-
-    private static JPanel createPopupPanel(JScrollPane scroll) {
-        JPanel popupPanel = new JPanel(new BorderLayout());
-        popupPanel.setOpaque(false);
-        popupPanel.setMaximumSize(new Dimension(70, 70));
-
-        popupPanel.setVisible(false);
-        popupPanel.setBackground( Color.BLACK );
-
-        JButton popupCloseButton = new JButton("Down");
-//        RoundButton popupCloseButton = new RoundButton(">");
-        popupPanel.add(wrapInPanel(popupCloseButton), BorderLayout.SOUTH);
-
-        popupCloseButton.addActionListener(e -> {
-            JScrollBar verticalScroll = scroll.getVerticalScrollBar();
-            System.out.println("Value: " + verticalScroll.getValue() + " Maximum: " + verticalScroll.getMaximum());
-
-            verticalScroll.setValue(verticalScroll.getMaximum());
-
-        });
-
-        return popupPanel;
-    }
-
-    private static JPanel wrapInPanel(JComponent component) {
-        JPanel jPanel = new JPanel();
-        jPanel.setBackground(new Color(50, 210, 250, 100));
-        jPanel.add(component);
-        return jPanel;
     }
 
     public void createListener() {

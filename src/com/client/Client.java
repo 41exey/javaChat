@@ -1,6 +1,7 @@
 package com.client;
 
 import com.common.*;
+import com.common.Popup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,15 +68,20 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
     Client(String title) {
         super(title);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new OverlayLayout(mainPanel));
+        setContentPane(mainPanel);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setPreferredSize(new Dimension(400, 450));
         setResizable(false);
-        setContentPane(panel1);
+//        setContentPane(panel1);
         setDisableComponents();
 
         scrollPane = new JScrollPane(textArea1);
-        getContentPane().add(scrollPane);
+        panel1.add(scrollPane);
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
         JMenuItem listenerItem = new JMenuItem("Connector");
@@ -142,6 +148,13 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 textField1.setText("");
             }
         });
+        JPanel popupPanel = Popup.createPopupPanel(scrollPane);
+        popupPanel.setAlignmentX(0.5f);
+        popupPanel.setAlignmentY(0.1f);
+//        popupPanel.setBounds(new Rectangle(50, 50, 75, 75));
+
+        mainPanel.add(popupPanel);
+        getContentPane().add(panel1);
         setVisible(true);
     }
 
