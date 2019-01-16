@@ -9,4 +9,7 @@ public interface MessageInterface extends Serializable {
     String getNick();
     String getContent();
     int getType();
+    int getId();
+    void setId(int id);
+    String toString();
 }

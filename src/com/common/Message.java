@@ -1,6 +1,15 @@
 package com.common;
 
 public class Message implements MessageInterface {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private final String nick;
     private final String content;
     private final int type;
@@ -20,7 +29,8 @@ public class Message implements MessageInterface {
         return type;
     }
 
-    public Message(String nick, String content, int type) {
+    public Message(int id, String nick, String content, int type) {
+        this.id = id;
         this.nick = nick;
         this.content = content;
         this.type = type;
@@ -28,10 +38,7 @@ public class Message implements MessageInterface {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "nick='" + nick + '\'' +
-                ", content='" + content + '\'' +
-                ", type=" + type +
-                '}';
+        return "( " + id + " ) " + nick + ": "
+                + content;
     }
 }
