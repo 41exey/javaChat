@@ -4,6 +4,7 @@ import com.common.*;
 import com.common.Popup;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -14,9 +15,10 @@ import java.util.Set;
 
 public class Server extends JFrame implements ConnectionListenerInterface, Runnable {
     private JPanel panel1;
-    private JTextArea textArea1;
+//    private JTextArea textArea1;
     private JTextField textField1;
     private JButton buttonSend;
+    private JTable table1;
     private JScrollPane scrollPane;
     boolean listen;
     boolean needToNewConnection = true;
@@ -31,7 +33,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     Banned banned;
 
     public void clearTextArea() {
-        textArea1.setText("");
+//        textArea1.setText("");
     }
 
     public void setNickname(String nickname) {
@@ -55,13 +57,13 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     private int port = Connection.PORT;
 
     public void setEnableComponents() {
-        textArea1.setEnabled(true);
+//        textArea1.setEnabled(true);
         textField1.setEnabled(true);
         buttonSend.setEnabled(true);
     }
 
     public void setDisableComponents() {
-        textArea1.setEnabled(false);
+//        textArea1.setEnabled(false);
         textField1.setEnabled(false);
         buttonSend.setEnabled(false);
     }
@@ -80,9 +82,25 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        setContentPane(panel1);
         setDisableComponents();
 
-        scrollPane = new JScrollPane(textArea1);
+        JScrollPane scroll = new JScrollPane(table1);
+//        scrollPane = new JScrollPane(textArea1);
 //        getContentPane().add(scrollPane);
-        panel1.add(scrollPane);
+//        panel1.add(scrollPane);
+        panel1.add(scroll);
+
+        DefaultTableModel tableModel = new DefaultTableModel();
+        table1.setModel(tableModel);
+
+        tableModel.addColumn("Column 1");
+//        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
+        table1.setTableHeader(null);
+        table1.setShowGrid(false);
+        table1.setRowHeight(25);
+//        table.setDragEnabled(false);
+//        table.setRowSelectionAllowed(false);
+//        table.setCellSelectionEnabled(false);
+        table1.setDefaultEditor(Object.class, null);
+
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
         JMenuItem listenerItem = new JMenuItem("Listener");
@@ -142,7 +160,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         pack();
         setLocationByPlatform(true);
         setLocationRelativeTo(null);
-        textArea1.setEditable(false);
+//        textArea1.setEditable(false);
         buttonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -155,7 +173,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                         connection.send(message);
                     }
 
-                    textArea1.append(getNickname() + ": " + text + "\n");
+//                    textArea1.append(getNickname() + ": " + text + "\n");
                     textField1.setText("");
                 }
 
@@ -178,7 +196,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                     connection.send(message);
                 }
 
-                textArea1.append(getNickname() + ": " + text + "\n");
+//                textArea1.append(getNickname() + ": " + text + "\n");
                 textField1.setText("");
             }
         });
@@ -236,7 +254,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     public synchronized void receivedContent(ConnectionInterface connection, MessageInterface message) {
         switch(message.getType()) {
             case Message.CONTENT_TYPE:
-                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
+//                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
                 for (ConnectionInterface connection1 : connections) {
                     connection1.send(message);
                 }
