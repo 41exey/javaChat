@@ -31,6 +31,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     ServerSocket serverSocket;
     Clients clients;
     Banned banned;
+    int messageId;
+    DefaultTableModel tableModel;
 
     public void clearTextArea() {
 //        textArea1.setText("");
@@ -88,7 +90,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        panel1.add(scrollPane);
         panel1.add(scroll);
 
-        DefaultTableModel tableModel = new DefaultTableModel();
+        tableModel = new DefaultTableModel();
         table1.setModel(tableModel);
 
         tableModel.addColumn("Column 1");
@@ -167,13 +169,15 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                  if (!textField1.getText().isEmpty()) {
                     String text = textField1.getText().trim();
                     System.out.println(text);
-                    Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
+                    Message message = new Message(messageId, getNickname(), text, Message.CONTENT_TYPE);
 
                     for (ConnectionInterface connection : connections) {
                         connection.send(message);
                     }
 
+
 //                    textArea1.append(getNickname() + ": " + text + "\n");
+                    tableModel.insertRow(messageId++, new Object[] { message });
                     textField1.setText("");
                 }
 
@@ -190,13 +194,14 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                     return;
 
                 String text = textField1.getText().trim();
-                Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
+                Message message = new Message(messageId, getNickname(), text, Message.CONTENT_TYPE);
 
                 for (ConnectionInterface connection : connections) {
                     connection.send(message);
                 }
 
 //                textArea1.append(getNickname() + ": " + text + "\n");
+                tableModel.insertRow(messageId++, new Object[] { message });
                 textField1.setText("");
             }
         });
@@ -228,7 +233,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        System.out.println("New host IP: " + connection.getSocket().getInetAddress().getHostAddress());
         connections.add(connection);
 
-        Message message = new Message("", "", Message.GET_NICK_TYPE);
+        Message message = new Message(messageId,"", "", Message.GET_NICK_TYPE);
         connection.send(message);
 
 //        System.out.println("Connection was added");
@@ -237,7 +242,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
     @Override
     public synchronized void connectionClosed(ConnectionInterface connection) {
-        Message message = new Message("", "Get nick type message", Message.CLOSE_TYPE);
+        Message message = new Message(messageId,"", "Get nick type message", Message.CLOSE_TYPE);
         connection.send(message);
         connections.remove(connection);
         System.out.println("Connection was closed");

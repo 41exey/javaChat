@@ -125,7 +125,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 if (!textField1.getText().isEmpty()) {
                     String text = textField1.getText().trim();
                     System.out.println(text);
-                    Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
+                    Message message = new Message(0, getNickname(), text, Message.CONTENT_TYPE);
                     connection.send(message);
                     //textArea1.append(getNickname() + ": " + textField1.getText() + "\n");
                     textField1.setText("");
@@ -143,7 +143,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
                 String text = textField1.getText().trim();
                 System.out.println(text);
-                Message message = new Message(getNickname(), text, Message.CONTENT_TYPE);
+                Message message = new Message(0, getNickname(), text, Message.CONTENT_TYPE);
                 connection.send(message);
                 textField1.setText("");
             }
@@ -170,7 +170,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
     @Override
     public void connectionClosed(ConnectionInterface connection) {
-        Message message = new Message("", "", Message.CLOSE_TYPE);
+        Message message = new Message(0, "", "", Message.CLOSE_TYPE);
         connection.send(message);
         connection.close();
         System.out.println("Client connection was closed");
@@ -198,7 +198,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                         JOptionPane.ERROR_MESSAGE);
                 break;
             case Message.GET_NICK_TYPE:
-                Message message1 = new Message(getNickname(), "Get nick type message", Message.GET_NICK_TYPE);
+                Message message1 = new Message(0, getNickname(), "Get nick type message", Message.GET_NICK_TYPE);
                 connection.send(message1);
                 System.out.println("Received GET_NICK_TYPE and Send GET_NICK_TYPE");
                 break;
