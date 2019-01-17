@@ -134,7 +134,14 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         fileMenu.add(exitItem);
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+//                System.exit(0);
+                exit();
+            }
+        });
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                exit();
             }
         });
         JMenu aboutMenu = new JMenu("About");
@@ -296,4 +303,9 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 //        client2.setVisible(true);
     }
 
+    void exit() {
+        System.out.println("Exit");
+        connectionClosed(connection);
+        System.exit(0);
+    }
 }
