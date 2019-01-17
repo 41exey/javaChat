@@ -110,7 +110,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
             tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
 
-//        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
+        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
         table1.setTableHeader(null);
         table1.setShowGrid(false);
         table1.setRowHeight(25);

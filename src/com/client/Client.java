@@ -93,7 +93,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         table1.setModel(tableModel);
 
         tableModel.addColumn("Column 1");
-//        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
+        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
 
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
