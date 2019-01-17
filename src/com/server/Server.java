@@ -334,11 +334,14 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                     System.out.println("Message range of out");
                     return;
                 }
-
+                Message message2;
                 for(int i = 0; i < Message.MESSAGES_HISTORY_COUNT; i++) {
-                    if (message.getId() - i < 0)
+                    if (message.getId() - i - 1 < 0)
                         break;
-                    message1 = (Message) tableModel.getValueAt(message.getId() - i, 0);
+                    message1 = (Message) tableModel.getValueAt(message.getId() - i - 1, 0);
+                    message2 = new Message(message1.getId(),
+                            message1.getNick(), message1.getContent(), Message.GET_HISTORY);
+                    connection.send(message2);
                     System.out.println(message1.getId());
                 }
                 message1 = new Message(messageId, getNickname(), "End of history", Message.END_HISTORY);

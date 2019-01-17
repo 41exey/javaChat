@@ -108,7 +108,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
-            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount() + 1, "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
+            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount() + 15, "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
 
         table1.setTableHeader(null);
         table1.setShowGrid(false);
@@ -206,6 +206,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
                         if (firstMessage.getId() == 0)
                             System.out.println("First message is received: ");
+
                         else {
                             System.out.println("GET_HISTORY: Start id: " + firstMessage.getId());
                             Message message = new Message(firstMessage.getId(), getNickname(), "Get me history", Message.GET_HISTORY);
@@ -275,6 +276,9 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 Message message1 = new Message(0, getNickname(), "Get nick type message", Message.GET_NICK_TYPE);
                 connection.send(message1);
                 System.out.println("Received GET_NICK_TYPE and Send GET_NICK_TYPE");
+                break;
+            case Message.GET_HISTORY:
+                tableModel.insertRow(0, new Object[] { message });
                 break;
             case Message.END_HISTORY:
                 setEnableComponents();
