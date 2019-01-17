@@ -98,9 +98,9 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         table1.setTableHeader(null);
         table1.setShowGrid(false);
         table1.setRowHeight(25);
-//        table.setDragEnabled(false);
-//        table.setRowSelectionAllowed(false);
-//        table.setCellSelectionEnabled(false);
+        table1.setDragEnabled(false);
+        table1.setRowSelectionAllowed(false);
+        table1.setCellSelectionEnabled(false);
         table1.setDefaultEditor(Object.class, null);
 
         JMenuBar menuBar = new JMenuBar();

@@ -95,6 +95,9 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         table1.setTableHeader(null);
         table1.setShowGrid(false);
         table1.setRowHeight(25);
+        table1.setDragEnabled(false);
+        table1.setRowSelectionAllowed(false);
+        table1.setCellSelectionEnabled(false);
         table1.setDefaultEditor(Object.class, null);
 
         JMenuBar menuBar = new JMenuBar();
