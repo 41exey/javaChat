@@ -18,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -80,17 +80,17 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="209" column="32" selection-start-line="209" selection-start-column="32" selection-end-line="209" selection-end-column="32" />
               <folding>
                 <element signature="e#1665#1811#0" expanded="true" />
                 <element signature="e#1810#1811#0" expanded="true" />
                 <element signature="e#3298#3299#0" expanded="true" />
                 <element signature="e#3344#3345#0" expanded="true" />
-                <element signature="e#8648#8649#0" expanded="true" />
+                <element signature="e#8729#8730#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -239,7 +239,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="280" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547712336825" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547712891608" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -364,18 +364,18 @@
       <workItem from="1546987159512" duration="150000" />
       <workItem from="1547640127259" duration="335000" />
       <workItem from="1547646078971" duration="5927000" />
-      <workItem from="1547701221771" duration="9921000" />
+      <workItem from="1547701221771" duration="10462000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115830000" />
+    <option name="totallyTimeSpent" value="116371000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-42" y="134" width="1274" height="804" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2166392" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2166392" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -384,7 +384,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32935917" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32935917" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32935917" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940387" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -603,6 +603,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="209" column="32" selection-start-line="209" selection-start-column="32" selection-end-line="209" selection-end-column="32" />
+          <folding>
+            <element signature="e#1665#1811#0" expanded="true" />
+            <element signature="e#1810#1811#0" expanded="true" />
+            <element signature="e#3298#3299#0" expanded="true" />
+            <element signature="e#3344#3345#0" expanded="true" />
+            <element signature="e#8729#8730#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -615,20 +629,6 @@
             <element signature="e#3918#3919#0" expanded="true" />
             <element signature="e#4179#4180#0" expanded="true" />
             <element signature="e#4234#4235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
-          <folding>
-            <element signature="e#1665#1811#0" expanded="true" />
-            <element signature="e#1810#1811#0" expanded="true" />
-            <element signature="e#3298#3299#0" expanded="true" />
-            <element signature="e#3344#3345#0" expanded="true" />
-            <element signature="e#8648#8649#0" expanded="true" />
           </folding>
         </state>
       </provider>

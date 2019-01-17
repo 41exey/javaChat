@@ -19,6 +19,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
     boolean connect;
     ConnectionInterface connection;
     DefaultTableModel tableModel;
+    boolean getHistory;
 
     public void clearTextArea() {
 //        textArea1.setText("");
@@ -195,9 +196,9 @@ public class Client extends JFrame implements ConnectionListenerInterface {
             {
                 if (!e.getValueIsAdjusting()) {
 
-                    if (verticalScroll.getValue() == 0 && connect) {
+                    if (verticalScroll.getValue() == 0 && connect && !getHistory) {
                         setDisableComponents();
-
+                        getHistory = true;
 
                         System.out.println("GET_HISTORY");
 
@@ -274,6 +275,10 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 Message message1 = new Message(0, getNickname(), "Get nick type message", Message.GET_NICK_TYPE);
                 connection.send(message1);
                 System.out.println("Received GET_NICK_TYPE and Send GET_NICK_TYPE");
+                break;
+            case Message.END_HISTORY:
+                setEnableComponents();
+                getHistory = false;
                 break;
         }
 
