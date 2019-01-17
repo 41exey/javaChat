@@ -48,12 +48,20 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 //        textArea1.setEnabled(true);
         textField1.setEnabled(true);
         buttonSend.setEnabled(true);
+        scrollPane.getViewport().getView().setEnabled(true);
+        scrollPane.createVerticalScrollBar().setEnabled(true);
+        scrollPane.getHorizontalScrollBar().setEnabled(true);
+        table1.setEnabled(true);
     }
 
     public void setDisableComponents() {
 //        textArea1.setEnabled(false);
         textField1.setEnabled(false);
         buttonSend.setEnabled(false);
+        scrollPane.getViewport().getView().setEnabled(false);
+        scrollPane.createVerticalScrollBar().setEnabled(false);
+        scrollPane.getHorizontalScrollBar().setEnabled(false);
+        table1.setEnabled(false);
     }
 
     public void setIP(String IP) {
@@ -83,11 +91,13 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         setPreferredSize(new Dimension(400, 450));
         setResizable(false);
 //        setContentPane(panel1);
-        setDisableComponents();
+
 
 //        scrollPane = new JScrollPane(textArea1);
         scrollPane = new JScrollPane(table1);
         panel1.add(scrollPane);
+
+        setDisableComponents();
 
         tableModel = new DefaultTableModel();
         table1.setModel(tableModel);
@@ -186,6 +196,9 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 if (!e.getValueIsAdjusting()) {
 
                     if (verticalScroll.getValue() == 0 && connect) {
+                        setDisableComponents();
+
+
                         System.out.println("GET_HISTORY");
 
                         Message firstMessage = (Message) tableModel.getValueAt(0, 0);
