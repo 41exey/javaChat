@@ -260,9 +260,12 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         switch(message.getType()) {
             case Message.CONTENT_TYPE:
 //                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
+                Message message1 = new Message(messageId, message.getNick(), message.getContent(), message.getType());
                 for (ConnectionInterface connection1 : connections) {
-                    connection1.send(message);
+                    connection1.send(message1);
                 }
+                tableModel.insertRow(tableModel.getRowCount(), new Object[] { message1 });
+                messageId++;
                 break;
             case Message.CLOSE_TYPE:
                 ClientsDialogItem item;
