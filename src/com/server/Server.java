@@ -106,9 +106,11 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
         tableModel.addColumn("Column 1");
 
+        /*
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
             tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (messageId++, "New", "New very very very very very very very very very very very very very very very very very very very very very long message from server", MessageInterface.CONTENT_TYPE) });
+*/
 
         table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
         table1.setTableHeader(null);
@@ -330,11 +332,31 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 break;
             case Message.GET_HISTORY:
                 System.out.println("Received GET_HISTORY_TYPE: with " + message.getId() + " id");
-                if (message.getId() < 0 || message.getId() > messageId) {
+                if (message.getId() < -1 || message.getId() > messageId) {
                     System.out.println("Message range of out");
                     return;
                 }
                 Message message2;
+                if (message.getId() == -1) {
+                    System.out.println("GET HISTORY BY -1");
+                    for(int i = 0; i < Message.MESSAGES_HISTORY_COUNT; i++) {
+                        if (messageId - i - 1 < 0)
+                            break;
+                        System.out.println(i);
+
+                        message1 = (Message) tableModel.getValueAt(messageId - i - 1, 0);
+                        message2 = new Message(message1.getId(),
+                                message1.getNick(), message1.getContent(), Message.GET_HISTORY);
+                        connection.send(message2);
+                        System.out.println(message1.getId());
+
+                    }
+                    message1 = new Message(messageId, getNickname(), "End of history", Message.END_HISTORY);
+                    connection.send(message1);
+
+                    break;
+                }
+
                 for(int i = 0; i < Message.MESSAGES_HISTORY_COUNT; i++) {
                     if (message.getId() - i - 1 < 0)
                         break;

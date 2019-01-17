@@ -1,6 +1,7 @@
 package com.client;
 
 import com.common.Connection;
+import com.common.Message;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -109,6 +110,7 @@ public class Connector extends JDialog {
                 form.clearTextArea();
                 form.setEnableComponents();
                 form.connect = true;
+
                 dispose();
             } catch (ConnectException e) {
                 JOptionPane.showMessageDialog(form,

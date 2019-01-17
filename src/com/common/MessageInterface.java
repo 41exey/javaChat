@@ -8,7 +8,7 @@ public interface MessageInterface extends Serializable {
     int GET_NICK_TYPE = 2;
     int GET_HISTORY = 3;
     int END_HISTORY = 4;
-    int MESSAGES_HISTORY_COUNT = 10;
+    int MESSAGES_HISTORY_COUNT = 50;
     String getNick();
     String getContent();
     int getType();

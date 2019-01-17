@@ -106,9 +106,12 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         tableModel.addColumn("Column 1");
         table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
 
+        /*
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
             tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount() + 15, "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
+            */
+
 
         table1.setTableHeader(null);
         table1.setShowGrid(false);
@@ -203,9 +206,11 @@ public class Client extends JFrame implements ConnectionListenerInterface {
             {
                 if (!e.getValueIsAdjusting()) {
 
+                    if (!verticalScroll.isVisible())
+                        return;
+
                     if (verticalScroll.getValue() == 0 && connect && !getHistory) {
-                        setDisableComponents();
-                        getHistory = true;
+
 
                         System.out.println("GET_HISTORY");
 
@@ -215,6 +220,8 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                             System.out.println("First message is received: ");
 
                         else {
+                            setDisableComponents();
+                            getHistory = true;
                             System.out.println("GET_HISTORY: Start id: " + firstMessage.getId());
                             Message message = new Message(firstMessage.getId(), getNickname(), "Get me history", Message.GET_HISTORY);
                             connection.send(message);
@@ -283,6 +290,10 @@ public class Client extends JFrame implements ConnectionListenerInterface {
                 Message message1 = new Message(0, getNickname(), "Get nick type message", Message.GET_NICK_TYPE);
                 connection.send(message1);
                 System.out.println("Received GET_NICK_TYPE and Send GET_NICK_TYPE");
+
+                System.out.println("GET_HISTORY after GET_NICK_TYPE: Start id: -1");
+                message1 = new Message(-1, getNickname(), "Get me history", Message.GET_HISTORY);
+                connection.send(message1);
                 break;
             case Message.GET_HISTORY:
                 tableModel.insertRow(0, new Object[] { message });
