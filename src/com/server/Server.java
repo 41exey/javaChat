@@ -106,8 +106,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
         tableModel.addColumn("Column 1");
 
-        /*
-        for(int i = 0; i < 500; i++)
+/*
+        for(int i = 0; i < 100; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
             tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (messageId++, "New", "New very very very very very very very very very very very very very very very very very very very very very long message from server", MessageInterface.CONTENT_TYPE) });
 */
@@ -189,7 +189,6 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                     String text = textField1.getText().trim();
                     System.out.println(text);
                     Message message = new Message(messageId, getNickname(), text, Message.CONTENT_TYPE);
-
                     for (ConnectionInterface connection : connections) {
                         connection.send(message);
                     }
@@ -197,6 +196,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
 //                    textArea1.append(getNickname() + ": " + text + "\n");
                     tableModel.insertRow(messageId++, new Object[] { message });
+                    Rectangle cell = table1.getCellRect(messageId - 1, 0, true);
+                    table1.scrollRectToVisible(cell);
                     textField1.setText("");
                 }
 
@@ -221,12 +222,15 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
 //                textArea1.append(getNickname() + ": " + text + "\n");
                 tableModel.insertRow(messageId++, new Object[] { message });
+
+                Rectangle cell = table1.getCellRect(messageId - 1, 0, true);
+                table1.scrollRectToVisible(cell);
+
                 textField1.setText("");
             }
         });
         JPanel popupPanel = Popup.createPopupPanel(scrollPane);
-        popupPanel.setAlignmentX(0.5f);
-        popupPanel.setAlignmentY(0.1f);
+
 //        popupPanel.setBounds(new Rectangle(50, 50, 75, 75));
 
         JScrollBar verticalScroll = scrollPane.getVerticalScrollBar();

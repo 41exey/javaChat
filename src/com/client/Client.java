@@ -195,8 +195,6 @@ public class Client extends JFrame implements ConnectionListenerInterface {
             }
         });
         JPanel popupPanel = Popup.createPopupPanel(scrollPane);
-        popupPanel.setAlignmentX(0.5f);
-        popupPanel.setAlignmentY(0.1f);
 //        popupPanel.setBounds(new Rectangle(50, 50, 75, 75));
 
         JScrollBar verticalScroll = scrollPane.getVerticalScrollBar();
@@ -275,6 +273,18 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         switch (message.getType()) {
             case Message.CONTENT_TYPE:
                 tableModel.insertRow(tableModel.getRowCount(), new Object[] { message });
+                JScrollBar scroll = scrollPane.getVerticalScrollBar();
+
+                if (getNickname().equals(message.getNick())) {
+                    Rectangle cell = table1.getCellRect(tableModel.getRowCount() - 1, 0, true);
+                    table1.scrollRectToVisible(cell);
+                }
+
+                if (scroll.getValue() > (scroll.getMaximum() - scroll.getModel().getExtent() * 2)) {
+                    Rectangle cell = table1.getCellRect(tableModel.getRowCount() - 1, 0, true);
+                    table1.scrollRectToVisible(cell);
+                }
+
 //                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
                 break;
             case Message.CLOSE_TYPE:
