@@ -4,6 +4,7 @@ import com.common.*;
 import com.common.Popup;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,15 +14,17 @@ import java.net.Socket;
 
 public class Client extends JFrame implements ConnectionListenerInterface {
     private JPanel panel1;
-    private JTextArea textArea1;
+//    private JTextArea textArea1;
     private JTextField textField1;
     private JButton buttonSend;
+    private JTable table1;
     private JScrollPane scrollPane;
     boolean connect;
     ConnectionInterface connection;
+    DefaultTableModel tableModel;
 
     public void clearTextArea() {
-        textArea1.setText("");
+//        textArea1.setText("");
     }
 
     public void setNickname(String nickname) {
@@ -45,13 +48,13 @@ public class Client extends JFrame implements ConnectionListenerInterface {
     private int port = Connection.PORT;
 
     public void setEnableComponents() {
-        textArea1.setEnabled(true);
+//        textArea1.setEnabled(true);
         textField1.setEnabled(true);
         buttonSend.setEnabled(true);
     }
 
     public void setDisableComponents() {
-        textArea1.setEnabled(false);
+//        textArea1.setEnabled(false);
         textField1.setEnabled(false);
         buttonSend.setEnabled(false);
     }
@@ -80,8 +83,20 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 //        setContentPane(panel1);
         setDisableComponents();
 
-        scrollPane = new JScrollPane(textArea1);
+//        scrollPane = new JScrollPane(textArea1);
+        scrollPane = new JScrollPane(table1);
         panel1.add(scrollPane);
+
+        tableModel = new DefaultTableModel();
+        table1.setModel(tableModel);
+
+        tableModel.addColumn("Column 1");
+//        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
+        table1.setTableHeader(null);
+        table1.setShowGrid(false);
+        table1.setRowHeight(25);
+        table1.setDefaultEditor(Object.class, null);
+
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
         JMenuItem listenerItem = new JMenuItem("Connector");
@@ -118,7 +133,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         pack();
         setLocationByPlatform(true);
         setLocationRelativeTo(null);
-        textArea1.setEditable(false);
+//        textArea1.setEditable(false);
         buttonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -186,7 +201,8 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 //        textArea1.append(message.toString());
         switch (message.getType()) {
             case Message.CONTENT_TYPE:
-                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
+                tableModel.insertRow(tableModel.getRowCount(), new Object[] { message });
+//                textArea1.append(message.getNick() + ": " + message.getContent() + "\n");
                 break;
             case Message.CLOSE_TYPE:
                 connection.close();
