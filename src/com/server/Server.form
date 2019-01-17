@@ -32,7 +32,7 @@
         <border type="none"/>
         <children/>
       </grid>
-      <component id="314b4" class="javax.swing.JTable" binding="table1" default-binding="true">
+      <component id="fe506" class="javax.swing.JTable" binding="table1" default-binding="true">
         <constraints border-constraint="Center"/>
         <properties/>
       </component>

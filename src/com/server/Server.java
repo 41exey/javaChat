@@ -73,7 +73,12 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
     public Server(String title) {
         super(title);
 
-        JPanel mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel(){
+            @Override
+            public boolean isOptimizedDrawingEnabled() {
+                return false;
+            }
+        };
         mainPanel.setLayout(new OverlayLayout(mainPanel));
         setContentPane(mainPanel);
 
@@ -84,16 +89,27 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        setContentPane(panel1);
         setDisableComponents();
 
+//        JTable table1 = new JTable();
+
         scrollPane = new JScrollPane(table1);
 //        scrollPane = new JScrollPane(textArea1);
 //        getContentPane().add(scrollPane);
 //        panel1.add(scrollPane);
-        panel1.add(scrollPane);
+
+
+//        panel1.add(scrollPane);
+//        panel1.add(table1);
+//        mainPanel.add(scrollPane);
 
         tableModel = new DefaultTableModel();
         table1.setModel(tableModel);
 
         tableModel.addColumn("Column 1");
+
+        for(int i = 0; i < 500; i++)
+//            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
+            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
+
 //        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
         table1.setTableHeader(null);
         table1.setShowGrid(false);
@@ -102,6 +118,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         table1.setRowSelectionAllowed(false);
         table1.setCellSelectionEnabled(false);
         table1.setDefaultEditor(Object.class, null);
+
 
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
@@ -210,8 +227,27 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
         popupPanel.setAlignmentY(0.1f);
 //        popupPanel.setBounds(new Rectangle(50, 50, 75, 75));
 
+        JScrollBar verticalScroll = scrollPane.getVerticalScrollBar();
+        verticalScroll.addAdjustmentListener(new AdjustmentListener()
+        {
+            public void adjustmentValueChanged(AdjustmentEvent e)
+            {
+                if (!e.getValueIsAdjusting()) {
+
+                    if (verticalScroll.getValue() + verticalScroll.getModel().getExtent() * 10 < verticalScroll.getMaximum()) {
+                        mainPanel.setFocusable(true);
+                        popupPanel.setVisible(true);
+                    } else {
+                        popupPanel.setVisible(false);
+                    }
+                }
+            }
+        });
+
+
         mainPanel.add(popupPanel);
-        getContentPane().add(panel1);
+//        mainPanel.add(panel1);
+        mainPanel.add(scrollPane);
         setVisible(true);
 
     }

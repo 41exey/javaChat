@@ -72,7 +72,12 @@ public class Client extends JFrame implements ConnectionListenerInterface {
     Client(String title) {
         super(title);
 
-        JPanel mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel(){
+            @Override
+            public boolean isOptimizedDrawingEnabled() {
+                return false;
+            }
+        };
         mainPanel.setLayout(new OverlayLayout(mainPanel));
         setContentPane(mainPanel);
 
