@@ -6,6 +6,8 @@ public interface MessageInterface extends Serializable {
     int CLOSE_TYPE = 0;
     int CONTENT_TYPE = 1;
     int GET_NICK_TYPE = 2;
+    int GET_HISTORY = 3;
+    int END_HISTORY = 4;
     String getNick();
     String getContent();
     int getType();

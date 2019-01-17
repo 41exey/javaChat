@@ -6,10 +6,7 @@ import com.common.Popup;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.net.Socket;
 
 public class Client extends JFrame implements ConnectionListenerInterface {
@@ -175,6 +172,23 @@ public class Client extends JFrame implements ConnectionListenerInterface {
         popupPanel.setAlignmentX(0.5f);
         popupPanel.setAlignmentY(0.1f);
 //        popupPanel.setBounds(new Rectangle(50, 50, 75, 75));
+
+        JScrollBar verticalScroll = scrollPane.getVerticalScrollBar();
+        verticalScroll.addAdjustmentListener(new AdjustmentListener()
+        {
+            public void adjustmentValueChanged(AdjustmentEvent e)
+            {
+                if (!e.getValueIsAdjusting()) {
+
+                    if (verticalScroll.getValue() + verticalScroll.getModel().getExtent() * 10 < verticalScroll.getMaximum()) {
+                        mainPanel.setFocusable(true);
+                        popupPanel.setVisible(true);
+                    } else {
+                        popupPanel.setVisible(false);
+                    }
+                }
+            }
+        });
 
         mainPanel.add(popupPanel);
         getContentPane().add(panel1);
