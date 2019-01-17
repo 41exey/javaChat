@@ -108,7 +108,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
-            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
+            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message from server", MessageInterface.CONTENT_TYPE) });
 
         table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
         table1.setTableHeader(null);
@@ -330,6 +330,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 break;
             case Message.GET_HISTORY:
                 System.out.println("Received GET_HISTORY_TYPE: with " + message.getId() + " id");
+
                 break;
         }
 
