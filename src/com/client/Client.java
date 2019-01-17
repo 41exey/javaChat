@@ -97,7 +97,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
-            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
+            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount() + 1, "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
 
         table1.setTableHeader(null);
         table1.setShowGrid(false);
@@ -185,7 +185,7 @@ public class Client extends JFrame implements ConnectionListenerInterface {
             {
                 if (!e.getValueIsAdjusting()) {
 
-                    if (verticalScroll.getValue() == 0) {
+                    if (verticalScroll.getValue() == 0 && connect) {
                         System.out.println("GET_HISTORY");
 
                         Message firstMessage = (Message) tableModel.getValueAt(0, 0);

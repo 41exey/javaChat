@@ -328,6 +328,9 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 }
                 System.out.println("Received GET_NICK_TYPE: " + connection.getNick());
                 break;
+            case Message.GET_HISTORY:
+                System.out.println("Received GET_HISTORY_TYPE: with " + message.getId() + " id");
+                break;
         }
 
     }

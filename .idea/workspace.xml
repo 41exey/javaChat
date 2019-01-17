@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59acfe8b-27a7-4fa9-8935-7b20a9f685dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="109" column="5" lean-forward="true" selection-start-line="108" selection-end-line="111" />
+            <state relative-caret-position="215">
+              <caret line="327" column="17" lean-forward="true" selection-start-line="327" selection-start-column="17" selection-end-line="327" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1748#1894#0" expanded="true" />
@@ -56,14 +56,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="196" column="132" selection-start-line="196" selection-start-column="132" selection-end-line="196" selection-end-column="132" />
+            <state relative-caret-position="130">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#1665#1811#0" expanded="true" />
                 <element signature="e#1810#1811#0" expanded="true" />
                 <element signature="e#3298#3299#0" expanded="true" />
                 <element signature="e#3344#3345#0" expanded="true" />
-                <element signature="e#8165#8166#0" expanded="true" />
+                <element signature="e#8141#8142#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,9 +121,9 @@
         <option value="$PROJECT_DIR$/src/com/common/Message.java" />
         <option value="$PROJECT_DIR$/src/com/client/Client.form" />
         <option value="$PROJECT_DIR$/src/com/server/Server.form" />
-        <option value="$PROJECT_DIR$/src/com/server/Server.java" />
         <option value="$PROJECT_DIR$/src/com/common/Popup.java" />
         <option value="$PROJECT_DIR$/src/com/common/MessageInterface.java" />
+        <option value="$PROJECT_DIR$/src/com/server/Server.java" />
         <option value="$PROJECT_DIR$/src/com/client/Client.java" />
       </list>
     </option>
@@ -211,7 +211,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="280" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547706693137" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547707175463" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -336,12 +336,12 @@
       <workItem from="1546987159512" duration="150000" />
       <workItem from="1547640127259" duration="335000" />
       <workItem from="1547646078971" duration="5927000" />
-      <workItem from="1547701221771" duration="5309000" />
+      <workItem from="1547701221771" duration="5689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111218000" />
+    <option name="totallyTimeSpent" value="111598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-42" y="134" width="1274" height="804" extended-state="0" />
@@ -567,8 +567,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="109" column="5" lean-forward="true" selection-start-line="108" selection-end-line="111" />
+        <state relative-caret-position="215">
+          <caret line="327" column="17" lean-forward="true" selection-start-line="327" selection-start-column="17" selection-end-line="327" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1748#1894#0" expanded="true" />
@@ -583,14 +583,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="196" column="132" selection-start-line="196" selection-start-column="132" selection-end-line="196" selection-end-column="132" />
+        <state relative-caret-position="130">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#1665#1811#0" expanded="true" />
             <element signature="e#1810#1811#0" expanded="true" />
             <element signature="e#3298#3299#0" expanded="true" />
             <element signature="e#3344#3345#0" expanded="true" />
-            <element signature="e#8165#8166#0" expanded="true" />
+            <element signature="e#8141#8142#0" expanded="true" />
           </folding>
         </state>
       </provider>
