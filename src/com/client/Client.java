@@ -94,6 +94,11 @@ public class Client extends JFrame implements ConnectionListenerInterface {
 
         tableModel.addColumn("Column 1");
 //        table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
+
+        for(int i = 0; i < 500; i++)
+//            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
+            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message", MessageInterface.CONTENT_TYPE) });
+
         table1.setTableHeader(null);
         table1.setShowGrid(false);
         table1.setRowHeight(25);
@@ -179,6 +184,23 @@ public class Client extends JFrame implements ConnectionListenerInterface {
             public void adjustmentValueChanged(AdjustmentEvent e)
             {
                 if (!e.getValueIsAdjusting()) {
+
+                    if (verticalScroll.getValue() == 0) {
+                        System.out.println("GET_HISTORY");
+
+                        Message firstMessage = (Message) tableModel.getValueAt(0, 0);
+
+                        if (firstMessage.getId() == 0)
+                            System.out.println("First message is received: ");
+                        else {
+                            System.out.println("GET_HISTORY: Start id: " + firstMessage.getId());
+                            Message message = new Message(firstMessage.getId(), getNickname(), "Get me history", Message.GET_HISTORY);
+                            connection.send(message);
+                        }
+
+                        verticalScroll.setValue(1);
+
+                    }
 
                     if (verticalScroll.getValue() + verticalScroll.getModel().getExtent() * 10 < verticalScroll.getMaximum()) {
                         mainPanel.setFocusable(true);
