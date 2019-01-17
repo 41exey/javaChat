@@ -97,7 +97,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        panel1.add(scrollPane);
 
 
-//        panel1.add(scrollPane);
+        panel1.add(scrollPane);
 //        panel1.add(table1);
 //        mainPanel.add(scrollPane);
 
@@ -108,7 +108,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
         for(int i = 0; i < 500; i++)
 //            tableModel.insertRow(tableModel.getRowCount(), new Object[] { item });
-            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (tableModel.getRowCount(), "New", "New very very very very very very very very very very very very very very very very very very very very very long message from server", MessageInterface.CONTENT_TYPE) });
+            tableModel.insertRow(tableModel.getRowCount(), new Object[] { new Message (messageId++, "New", "New very very very very very very very very very very very very very very very very very very very very very long message from server", MessageInterface.CONTENT_TYPE) });
 
         table1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
         table1.setTableHeader(null);
@@ -246,8 +246,8 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 
 
         mainPanel.add(popupPanel);
-//        mainPanel.add(panel1);
-        mainPanel.add(scrollPane);
+        mainPanel.add(panel1);
+//        mainPanel.add(scrollPane);
         setVisible(true);
 
     }
@@ -330,6 +330,19 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
                 break;
             case Message.GET_HISTORY:
                 System.out.println("Received GET_HISTORY_TYPE: with " + message.getId() + " id");
+                if (message.getId() < 0 || message.getId() > messageId) {
+                    System.out.println("Message range of out");
+                    return;
+                }
+
+                for(int i = 0; i < Message.MESSAGES_HISTORY_COUNT; i++) {
+                    if (message.getId() - i < 0)
+                        break;
+                    message1 = (Message) tableModel.getValueAt(message.getId() - i, 0);
+                    System.out.println(message1.getId());
+                }
+                message1 = new Message(messageId, getNickname(), "End of history", Message.END_HISTORY);
+                connection.send(message1);
 
                 break;
         }
