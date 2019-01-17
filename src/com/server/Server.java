@@ -84,11 +84,11 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
 //        setContentPane(panel1);
         setDisableComponents();
 
-        JScrollPane scroll = new JScrollPane(table1);
+        scrollPane = new JScrollPane(table1);
 //        scrollPane = new JScrollPane(textArea1);
 //        getContentPane().add(scrollPane);
 //        panel1.add(scrollPane);
-        panel1.add(scroll);
+        panel1.add(scrollPane);
 
         tableModel = new DefaultTableModel();
         table1.setModel(tableModel);
