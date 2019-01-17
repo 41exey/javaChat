@@ -240,7 +240,7 @@ public class Server extends JFrame implements ConnectionListenerInterface, Runna
             {
                 if (!e.getValueIsAdjusting()) {
 
-                    if (verticalScroll.getValue() + verticalScroll.getModel().getExtent() * 10 < verticalScroll.getMaximum()) {
+                    if (verticalScroll.getValue() + verticalScroll.getModel().getExtent() * Message.DOWN_BUTTON_FACTOR < verticalScroll.getMaximum()) {
                         mainPanel.setFocusable(true);
                         popupPanel.setVisible(true);
                     } else {

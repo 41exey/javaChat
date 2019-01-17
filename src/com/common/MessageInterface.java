@@ -9,6 +9,7 @@ public interface MessageInterface extends Serializable {
     int GET_HISTORY = 3;
     int END_HISTORY = 4;
     int MESSAGES_HISTORY_COUNT = 50;
+    int DOWN_BUTTON_FACTOR = 2;
     String getNick();
     String getContent();
     int getType();
